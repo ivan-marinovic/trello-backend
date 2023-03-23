@@ -1,24 +1,39 @@
 package com.example.Trellobackend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table
-public class List {
+public class TList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer listId;
     private String title;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "boardId")
     private Board board;
 
-    @OneToMany(mappedBy = "list")
-    private java.util.List<Card> cards;
+    @OneToMany(mappedBy = "TList")
+    @JsonIgnore
+    private List<Card> cards;
 
-    public List() {
+    public TList() {
     }
+
+    public TList(String title, Board board) {
+        this.title = title;
+        this.board = board;
+    }
+
+    public TList(String title) {
+        this.title = title;
+    }
+
 
     public Integer getListId() {
         return listId;
@@ -52,3 +67,4 @@ public class List {
         this.cards = cards;
     }
 }
+

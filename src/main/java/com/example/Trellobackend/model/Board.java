@@ -21,7 +21,7 @@ public class Board {
 
     @OneToMany(mappedBy = "board")
     @JsonIgnore
-    private List<com.example.Trellobackend.model.List>lists;
+    private List<TList> TLists;
 
     public Board() {
     }
@@ -69,12 +69,12 @@ public class Board {
         this.user = user;
     }
 
-    public List<com.example.Trellobackend.model.List> getLists() {
-        return lists;
+    public List<TList> getLists() {
+        return TLists;
     }
 
-    public void setLists(List<com.example.Trellobackend.model.List> lists) {
-        this.lists = lists;
+    public void setLists(List<TList> TLists) {
+        this.TLists = TLists;
     }
 }
 

@@ -43,6 +43,6 @@ public class BoardService {
         } else {
             throw new BoardNotFoundException("Board with id " + boardId +  " does not exist");
         }
-
     }
+
 }

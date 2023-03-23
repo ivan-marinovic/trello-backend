@@ -13,7 +13,7 @@ public class Card {
 
     @ManyToOne
     @JoinColumn(name = "listId")
-    private List list;
+    private TList TList;
 
     public Card() {
     }
@@ -42,11 +42,11 @@ public class Card {
         this.description = description;
     }
 
-    public List getList() {
-        return list;
+    public TList getList() {
+        return TList;
     }
 
-    public void setList(List list) {
-        this.list = list;
+    public void setList(TList TList) {
+        this.TList = TList;
     }
 }
