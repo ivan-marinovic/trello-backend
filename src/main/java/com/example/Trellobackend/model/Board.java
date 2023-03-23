@@ -1,5 +1,6 @@
 package com.example.Trellobackend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -14,13 +15,26 @@ public class Board {
     private String imageUrl;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "userId")
     private User user;
 
     @OneToMany(mappedBy = "board")
+    @JsonIgnore
     private List<com.example.Trellobackend.model.List>lists;
 
     public Board() {
+    }
+
+    public Board(Integer boardId, String title, String imageUrl) {
+        this.boardId = boardId;
+        this.title = title;
+        this.imageUrl = imageUrl;
+    }
+
+    public Board(String title, String imageUrl) {
+        this.title = title;
+        this.imageUrl = imageUrl;
     }
 
     public Integer getBoardId() {
