@@ -12,8 +12,7 @@ public class BoardPresentationService {
 
     public Board convertToModel(BoardDto boardDto) {
         return new Board(
-                boardDto.getTitle(),
-                boardDto.getImageUrl()
+                boardDto.getTitle()
         );
 
     }
@@ -22,7 +21,7 @@ public class BoardPresentationService {
         return new BoardResponse(
                 board.getBoardId(),
                 board.getTitle(),
-                board.getImageUrl()
+                board.getLists()
         );
     }
 

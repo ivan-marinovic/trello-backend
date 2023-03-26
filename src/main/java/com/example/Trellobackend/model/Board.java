@@ -29,7 +29,7 @@ public class Board {
         this.title = title;
     }
 
-    public Board(String title, String imageUrl) {
+    public Board(String title) {
         this.title = title;
     }
 
