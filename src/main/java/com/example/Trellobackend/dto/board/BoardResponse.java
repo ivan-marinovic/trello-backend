@@ -1,14 +1,18 @@
 package com.example.Trellobackend.dto.board;
 
+import com.example.Trellobackend.model.TList;
+
+import java.util.List;
+
 public class BoardResponse {
     private Integer boardId;
     private String title;
-    private String imageUrl;
+    private List<TList> lists;
 
-    public BoardResponse(Integer boardId, String title, String imageUrl) {
+    public BoardResponse(Integer boardId, String title, List<TList> lists) {
         this.boardId = boardId;
         this.title = title;
-        this.imageUrl = imageUrl;
+        this.lists = lists;
     }
 
     public Integer getBoardId() {
@@ -27,11 +31,11 @@ public class BoardResponse {
         this.title = title;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public List<TList> getLists() {
+        return lists;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setLists(List<TList> lists) {
+        this.lists = lists;
     }
 }

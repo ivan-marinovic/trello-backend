@@ -3,11 +3,9 @@ package com.example.Trellobackend.dto.board;
 public class BoardDto {
 
     private String title;
-    private String imageUrl;
 
-    public BoardDto(String title, String imageUrl) {
+    public BoardDto(String title) {
         this.title = title;
-        this.imageUrl = imageUrl;
     }
 
     public String getTitle() {
@@ -18,11 +16,4 @@ public class BoardDto {
         this.title = title;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
 }

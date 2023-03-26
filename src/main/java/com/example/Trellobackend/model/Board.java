@@ -12,7 +12,6 @@ public class Board {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer boardId;
     private String title;
-    private String imageUrl;
 
     @ManyToOne
     @JsonIgnore
@@ -20,7 +19,6 @@ public class Board {
     private User user;
 
     @OneToMany(mappedBy = "board")
-    @JsonIgnore
     private List<TList> TLists;
 
     public Board() {
@@ -29,12 +27,10 @@ public class Board {
     public Board(Integer boardId, String title, String imageUrl) {
         this.boardId = boardId;
         this.title = title;
-        this.imageUrl = imageUrl;
     }
 
     public Board(String title, String imageUrl) {
         this.title = title;
-        this.imageUrl = imageUrl;
     }
 
     public Integer getBoardId() {
@@ -51,14 +47,6 @@ public class Board {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
     }
 
     public User getUser() {
