@@ -45,4 +45,15 @@ public class BoardService {
         }
     }
 
+    public void updateBoard(Integer boardId, Board board) {
+        Optional<Board> optionalBoard = boardRepository.findById(boardId);
+        if(optionalBoard.isPresent()) {
+            Board updatedBoard = optionalBoard.get();
+            updatedBoard.setTitle(board.getTitle());
+            updatedBoard.setImageUrl(board.getImageUrl());
+            boardRepository.save(updatedBoard);
+        } else {
+            throw new BoardNotFoundException("Board with id " + boardId +  " does not exist");
+        }
+    }
 }

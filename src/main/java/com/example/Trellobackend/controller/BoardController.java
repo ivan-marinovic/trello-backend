@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/board")
+@CrossOrigin(origins = "http://localhost:4200")
 public class BoardController {
 
     private final BoardService boardService;
@@ -42,6 +43,12 @@ public class BoardController {
     public ResponseEntity<ApiResponse> addNewBoard(@RequestBody BoardDto boardDto) {
         boardService.addBoard(boardPresentationService.convertToModel(boardDto));
         return new ResponseEntity<>(new ApiResponse(1, "Board added successfully!"), HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{boardId}")
+    public ResponseEntity<ApiResponse> updateBoard(@PathVariable("boardId") Integer boardId, @RequestBody BoardDto boardDto) {
+        boardService.updateBoard(boardId, boardPresentationService.convertToModel(boardDto));
+        return new ResponseEntity<>(new ApiResponse(1, "Board updated successfully!"), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{boardId}")
