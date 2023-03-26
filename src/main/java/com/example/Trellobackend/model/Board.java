@@ -18,7 +18,7 @@ public class Board {
     @JoinColumn(name = "userId")
     private User user;
 
-    @OneToMany(mappedBy = "board")
+    @OneToMany(mappedBy = "board",  cascade = CascadeType.ALL)
     private List<TList> TLists;
 
     public Board() {

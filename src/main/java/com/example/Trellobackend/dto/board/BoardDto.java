@@ -4,6 +4,9 @@ public class BoardDto {
 
     private String title;
 
+    public BoardDto() {
+    }
+
     public BoardDto(String title) {
         this.title = title;
     }

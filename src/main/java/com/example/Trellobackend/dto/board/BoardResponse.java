@@ -9,6 +9,9 @@ public class BoardResponse {
     private String title;
     private List<TList> lists;
 
+    public BoardResponse() {
+    }
+
     public BoardResponse(Integer boardId, String title, List<TList> lists) {
         this.boardId = boardId;
         this.title = title;

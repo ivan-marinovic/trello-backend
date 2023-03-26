@@ -4,6 +4,7 @@ import com.example.Trellobackend.exception.BoardNotFoundException;
 import com.example.Trellobackend.model.Board;
 import com.example.Trellobackend.repository.BoardRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -36,6 +37,7 @@ public class BoardService {
         return boardRepository.findAll();
     }
 
+    @Transactional
     public void deleteBoardById(Integer boardId) {
         Optional<Board> optionalBoard = boardRepository.findById(boardId);
         if(optionalBoard.isPresent()) {
