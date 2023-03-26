@@ -50,7 +50,7 @@ public class BoardService {
         if(optionalBoard.isPresent()) {
             Board updatedBoard = optionalBoard.get();
             updatedBoard.setTitle(board.getTitle());
-            updatedBoard.setImageUrl(board.getImageUrl());
+            updatedBoard.setLists(board.getLists());
             boardRepository.save(updatedBoard);
         } else {
             throw new BoardNotFoundException("Board with id " + boardId +  " does not exist");
