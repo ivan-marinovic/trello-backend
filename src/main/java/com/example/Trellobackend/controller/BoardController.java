@@ -1,6 +1,6 @@
 package com.example.Trellobackend.controller;
 
-import com.example.Trellobackend.dto.board.BoardDto;
+import com.example.Trellobackend.dto.board.BoardRequest;
 import com.example.Trellobackend.dto.board.BoardResponse;
 import com.example.Trellobackend.model.Board;
 import com.example.Trellobackend.response.ApiResponse;
@@ -39,14 +39,14 @@ public class BoardController {
     }
 
     @PostMapping
-    public ResponseEntity<ApiResponse> addNewBoard(@RequestBody BoardDto boardDto) {
-        boardService.addBoard(boardPresentationService.convertToModel(boardDto));
+    public ResponseEntity<ApiResponse> addNewBoard(@RequestBody BoardRequest boardRequest) {
+        boardService.addBoard(boardPresentationService.convertToModel(boardRequest));
         return new ResponseEntity<>(new ApiResponse(1, "Board added successfully!"), HttpStatus.CREATED);
     }
 
     @PutMapping("/{boardId}")
-    public ResponseEntity<ApiResponse> updateBoard(@PathVariable("boardId") Integer boardId, @RequestBody BoardDto boardDto) {
-        boardService.updateBoard(boardId, boardPresentationService.convertToModel(boardDto));
+    public ResponseEntity<ApiResponse> updateBoard(@PathVariable("boardId") Integer boardId, @RequestBody BoardRequest boardRequest) {
+        boardService.updateBoard(boardId, boardPresentationService.convertToModel(boardRequest));
         return new ResponseEntity<>(new ApiResponse(1, "Board updated successfully!"), HttpStatus.CREATED);
     }
 

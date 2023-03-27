@@ -1,8 +1,7 @@
 package com.example.Trellobackend.controller;
 
-import com.example.Trellobackend.dto.list.ListDto;
+import com.example.Trellobackend.dto.list.ListRequest;
 import com.example.Trellobackend.dto.list.ListResponse;
-import com.example.Trellobackend.model.TList;
 import com.example.Trellobackend.response.ApiResponse;
 import com.example.Trellobackend.service.ListService;
 import com.example.Trellobackend.service.presentation.ListPresentationService;
@@ -30,8 +29,8 @@ public class ListController {
     }
 
     @PostMapping("/{boardId}")
-    public ResponseEntity<ApiResponse> createNewList(@PathVariable("boardId") Integer boardId, @RequestBody ListDto listDto) {
-        listService.addNewList(boardId, listPresentationService.convertToModel(listDto));
+    public ResponseEntity<ApiResponse> createNewList(@PathVariable("boardId") Integer boardId, @RequestBody ListRequest listRequest) {
+        listService.addNewList(boardId, listPresentationService.convertToModel(listRequest));
         return new ResponseEntity<>(new ApiResponse(1, "List created successfully!"), HttpStatus.CREATED);
     }
 }

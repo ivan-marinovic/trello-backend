@@ -1,12 +1,13 @@
-package com.example.Trellobackend.dto.list;
+package com.example.Trellobackend.dto.board;
 
-public class ListDto {
+public class BoardRequest {
+
     private String title;
 
-    public ListDto() {
+    public BoardRequest() {
     }
 
-    public ListDto(String title) {
+    public BoardRequest(String title) {
         this.title = title;
     }
 
@@ -17,4 +18,5 @@ public class ListDto {
     public void setTitle(String title) {
         this.title = title;
     }
+
 }
