@@ -19,6 +19,7 @@ public class Board {
     private User user;
 
     @OneToMany(mappedBy = "board",  cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<TList> TLists;
 
     public Board() {

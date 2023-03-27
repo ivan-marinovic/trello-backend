@@ -19,6 +19,7 @@ public class TList {
     private Board board;
 
     @OneToMany(mappedBy = "TList",  cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Card> cards;
 
     public TList() {

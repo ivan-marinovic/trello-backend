@@ -1,5 +1,6 @@
 package com.example.Trellobackend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +13,7 @@ public class Card {
     private String description;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "listId")
     private TList TList;
 
