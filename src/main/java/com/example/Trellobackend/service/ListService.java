@@ -6,6 +6,7 @@ import com.example.Trellobackend.model.Board;
 import com.example.Trellobackend.model.TList;
 import com.example.Trellobackend.repository.ListRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -43,6 +44,7 @@ public class ListService {
         }
     }
 
+    @Transactional
     public void deleteListById(Integer listId) {
         Optional<TList> optionalTList = listRepository.findById(listId);
         if (optionalTList.isPresent()) {
