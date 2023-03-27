@@ -52,4 +52,15 @@ public class ListService {
         }
     }
 
+    public void updateList(Integer listId, TList tList) {
+        Optional<TList> optionalTList = listRepository.findById(listId);
+        if(optionalTList.isPresent()) {
+            TList updatedList = optionalTList.get();
+            updatedList.setTitle(tList.getTitle());
+            listRepository.save(updatedList);
+        } else {
+            throw new TListNotFoundException("TList with id " + listId + " does not exist");
+        }
+    }
+
 }

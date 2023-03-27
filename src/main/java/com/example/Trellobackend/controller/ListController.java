@@ -34,6 +34,12 @@ public class ListController {
         return new ResponseEntity<>(new ApiResponse(1, "List created successfully!"), HttpStatus.CREATED);
     }
 
+    @PutMapping("/{listId}")
+    public ResponseEntity<ApiResponse> updateList(@PathVariable("listId") Integer listId, @RequestBody ListRequest listRequest) {
+        listService.updateList(listId, listPresentationService.convertToModel(listRequest));
+        return new ResponseEntity<>(new ApiResponse(1, "List updated successfully!"), HttpStatus.OK);
+    }
+
     @DeleteMapping("/{listId}")
     public ResponseEntity<ApiResponse> deleteList(@PathVariable("listId") Integer listId) {
         listService.deleteListById(listId);
