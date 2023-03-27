@@ -18,4 +18,9 @@ public class ExceptionControllerAdvice {
     public final ResponseEntity<ApiResponse> handleTListNotFoundException(TListNotFoundException tListNotFoundException) {
         return new ResponseEntity<>(new ApiResponse(0, tListNotFoundException.getMessage()), HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(value = CardNotFoundException.class)
+    public final ResponseEntity<ApiResponse> handleCardNotFoundException(CardNotFoundException cardNotFoundException) {
+        return new ResponseEntity<>(new ApiResponse(0, cardNotFoundException.getMessage()), HttpStatus.NOT_FOUND);
+    }
 }

@@ -35,6 +35,15 @@ public class ListService {
         }
     }
 
+    public TList getListById(Integer listId) {
+        Optional<TList> optionalTList = listRepository.findById(listId);
+        if (optionalTList.isPresent()) {
+            return optionalTList.get();
+        } else {
+            throw new TListNotFoundException("TList with id " + listId + " does not exist");
+        }
+    }
+
     public List<TList> getAllListsForBoard(Integer boardId) {
         Optional<Board> board = Optional.ofNullable(boardService.getBoardById(boardId));
         if (board.isEmpty()) {

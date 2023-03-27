@@ -23,7 +23,11 @@ public class Card {
         this.description = description;
     }
 
-
+    public Card(String title, String description, TList tList) {
+        this.title = title;
+        this.description = description;
+        this.TList = tList;
+    }
 
     public Integer getCardId() {
         return cardId;
