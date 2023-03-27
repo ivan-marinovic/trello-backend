@@ -18,6 +18,13 @@ public class Card {
     public Card() {
     }
 
+    public Card(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
+
+
+
     public Integer getCardId() {
         return cardId;
     }
