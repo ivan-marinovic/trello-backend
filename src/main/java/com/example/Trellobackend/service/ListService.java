@@ -1,6 +1,7 @@
 package com.example.Trellobackend.service;
 
 import com.example.Trellobackend.exception.BoardNotFoundException;
+import com.example.Trellobackend.exception.TListNotFoundException;
 import com.example.Trellobackend.model.Board;
 import com.example.Trellobackend.model.TList;
 import com.example.Trellobackend.repository.ListRepository;
@@ -39,6 +40,15 @@ public class ListService {
             throw new BoardNotFoundException("Board with id " + boardId + " does not exist");
         } else {
             return listRepository.findAllByBoard(board.get());
+        }
+    }
+
+    public void deleteListById(Integer listId) {
+        Optional<TList> optionalTList = listRepository.findById(listId);
+        if (optionalTList.isPresent()) {
+            listRepository.delete(optionalTList.get());
+        } else {
+            throw new TListNotFoundException("TList with id " + listId + " does not exist");
         }
     }
 

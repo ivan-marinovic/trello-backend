@@ -33,4 +33,10 @@ public class ListController {
         listService.addNewList(boardId, listPresentationService.convertToModel(listRequest));
         return new ResponseEntity<>(new ApiResponse(1, "List created successfully!"), HttpStatus.CREATED);
     }
+
+    @DeleteMapping("/{listId}")
+    public ResponseEntity<ApiResponse> deleteList(@PathVariable("listId") Integer listId) {
+        listService.deleteListById(listId);
+        return new ResponseEntity<>(new ApiResponse(1, "List deleted successfully!"), HttpStatus.OK);
+    }
 }

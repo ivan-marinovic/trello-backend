@@ -13,4 +13,9 @@ public class ExceptionControllerAdvice {
     public final ResponseEntity<ApiResponse> handleBoardNotFoundException(BoardNotFoundException boardNotFoundException) {
         return new ResponseEntity<>(new ApiResponse(0, boardNotFoundException.getMessage()), HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(value = TListNotFoundException.class)
+    public final ResponseEntity<ApiResponse> handleTListNotFoundException(TListNotFoundException tListNotFoundException) {
+        return new ResponseEntity<>(new ApiResponse(0, tListNotFoundException.getMessage()), HttpStatus.NOT_FOUND);
+    }
 }
