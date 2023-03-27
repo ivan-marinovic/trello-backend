@@ -18,8 +18,7 @@ public class TList {
     @JoinColumn(name = "boardId")
     private Board board;
 
-    @OneToMany(mappedBy = "TList")
-    @JsonIgnore
+    @OneToMany(mappedBy = "TList",  cascade = CascadeType.ALL)
     private List<Card> cards;
 
     public TList() {
