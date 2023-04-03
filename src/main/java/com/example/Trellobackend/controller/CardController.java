@@ -25,4 +25,10 @@ public class CardController {
         cardService.createCard(listId, cardPresentationService.convertToModel(cardRequest));
         return new ResponseEntity<>(new ApiResponse(1, "Card created successfully!"), HttpStatus.CREATED);
     }
+
+    @PutMapping("{cardId}/{listId}")
+    public ResponseEntity<ApiResponse> moveCardToAnotherList(@PathVariable("cardId") Integer cardId, @PathVariable("listId") Integer listId) {
+        cardService.moveCardToAnotherList(cardId, listId);
+        return new ResponseEntity<>(new ApiResponse(1, "Card moved successfully!"), HttpStatus.OK);
+    }
 }

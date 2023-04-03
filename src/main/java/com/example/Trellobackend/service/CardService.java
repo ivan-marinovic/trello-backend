@@ -45,4 +45,15 @@ public class CardService {
             throw new CardNotFoundException("Card with id " + cardId + " does not exist");
         }
     }
+
+    public void moveCardToAnotherList(Integer cardId, Integer listId) {
+        Optional<Card> optionalCard = cardRepository.findById(cardId);
+        if(optionalCard.isPresent()) {
+            Card card = optionalCard.get();
+            card.setList(listService.getListById(listId));
+            cardRepository.save(card);
+        } else {
+            throw new CardNotFoundException("Card with id " + cardId + " does not exist");
+        }
+    }
 }
