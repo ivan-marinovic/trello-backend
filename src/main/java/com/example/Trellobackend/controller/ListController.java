@@ -23,9 +23,9 @@ public class ListController {
         this.listPresentationService = listPresentationService;
     }
 
-    @GetMapping("/{boardId}")
-    public List<ListResponse> getAllListsForBoard(@PathVariable("boardId") Integer boardId) {
-        return listPresentationService.convertToDtoList(listService.getAllListsForBoard(boardId));
+    @GetMapping("/{listId}")
+    public ListResponse getListById(@PathVariable("listId") Integer listId) {
+        return listPresentationService.convertToDto(listService.getListById(listId));
     }
 
     @PostMapping("/{boardId}")
