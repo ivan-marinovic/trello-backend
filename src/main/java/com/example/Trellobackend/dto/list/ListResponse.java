@@ -1,5 +1,6 @@
 package com.example.Trellobackend.dto.list;
 
+import com.example.Trellobackend.dto.card.CardResponse;
 import com.example.Trellobackend.model.Card;
 
 import java.util.List;
@@ -7,12 +8,12 @@ import java.util.List;
 public class ListResponse {
     private Integer listId;
     private String title;
-    private List<Card> cards;
+    private List<CardResponse> cards;
 
     public ListResponse() {
     }
 
-    public ListResponse(Integer listId, String title, List<Card> cards) {
+    public ListResponse(Integer listId, String title, List<CardResponse> cards) {
         this.listId = listId;
         this.title = title;
         this.cards = cards;
@@ -34,11 +35,11 @@ public class ListResponse {
         this.title = title;
     }
 
-    public List<Card> getCards() {
+    public List<CardResponse> getCards() {
         return cards;
     }
 
-    public void setCards(List<Card> cards) {
+    public void setCards(List<CardResponse> cards) {
         this.cards = cards;
     }
 }

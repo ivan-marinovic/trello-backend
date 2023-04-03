@@ -10,6 +10,12 @@ import java.util.List;
 @Service
 public class ListPresentationService {
 
+    private final CardPresentationService cardPresentationService;
+
+    public ListPresentationService(CardPresentationService cardPresentationService) {
+        this.cardPresentationService = cardPresentationService;
+    }
+
     public TList convertToModel(ListRequest listRequest) {
         return new TList(
                 listRequest.getTitle()
@@ -20,7 +26,7 @@ public class ListPresentationService {
         return new ListResponse(
                 tList.getListId(),
                 tList.getTitle(),
-                tList.getCards()
+                cardPresentationService.convertToDtoList(tList.getCards())
         );
     }
 

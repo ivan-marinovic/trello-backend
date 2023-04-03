@@ -10,6 +10,12 @@ import java.util.List;
 @Service
 public class BoardPresentationService {
 
+    private final ListPresentationService listPresentationService;
+
+    public BoardPresentationService(ListPresentationService listPresentationService) {
+        this.listPresentationService = listPresentationService;
+    }
+
     public Board convertToModel(BoardRequest boardRequest) {
         return new Board(
                 boardRequest.getTitle()
@@ -21,7 +27,7 @@ public class BoardPresentationService {
         return new BoardResponse(
                 board.getBoardId(),
                 board.getTitle(),
-                board.getLists()
+                listPresentationService.convertToDtoList(board.getLists())
         );
     }
 
